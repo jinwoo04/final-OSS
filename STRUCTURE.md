@@ -22,4 +22,10 @@ zip_file_creator.py - 선택한 엑셀 파일을 ZIP 파일로 생성하는 코�
 
 email_sender.py - ZIP 파일을 이메일로 전송하는 기능을 구현한 코드.
 
+graph_generator.py - 특정 권역별로 기온과 강수량 그래프를 생성. 
+
+zip_file_creator.py - 선택한 엑셀 파일을 ZIP 파일로 생성. 생성된 ZIP 파일을 자동으로 이메일로 전송.
+
+email_sender.py - ZIP 파일을 이메일로 전송하는 기능을 구현한 코드.
+
 <hr/>
