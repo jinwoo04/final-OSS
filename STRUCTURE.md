@@ -32,6 +32,13 @@ graph_generator.py - 특정 권역별로 기온과 강수량 그래프를 생성
 
 zip_file_creator.py - 선택한 엑셀 파일을 ZIP 파일로 생성. 생성된 ZIP 파일을 자동으로 이메일로 전송.
 
-email_sender.py - ZIP 파일을 이메일로 전송하는 기능을 구현한 코드.
+email_sender.py 기능: ZIP 파일을 이메일로 전송하는 기능을 구현한 코드. 
+
+oss_24.py 기능: 오픈 소스 프로젝트와 관련된 작업을 수행하는 기능을 구현한 코드. 
+
+testfin.py 기능: 프로젝트의 단위 테스트를 담당하는 기능을 구현한 코드. 
+
+zip_region.py 기능: ZIP 코드를 기반으로 특정 지역의 날씨 데이터를 가져오는 기능을 구현한 코드.
+
 
 <hr/>
