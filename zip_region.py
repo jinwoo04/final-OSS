@@ -3,5 +3,7 @@ from zipfile import ZipFile
 from datetime import datetime
 
 def get_region_name(file):
-    # 파일명에서 지역명 추출
-    pass
+
+    filename = os.path.basename(file)
+    region = filename.split('_')[-1].split('.')[0]
+    return region
