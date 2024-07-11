@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일일 지역별 기상날씨</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript">
+        function checkAll(el){
+            const checkBoxes  = document.querySelectorAll('.form-check-input');
+            checkBoxes.forEach((row)=>{
+                row.checked = el.checked;
+            })
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>
+            <i class="bi bi-cloud-sun"></i>
+            일일 지역별 기상날씨
+        </h2>
+        <form  method="post" action="{{url_for('download',files=excel_files, file_names=file_names,file_size = file_size)}}">
+            <table class="table table-hover mt-3">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>파일명 <i class="bi bi-file-earmark-text"></i></th>
+                        <th>파일 크기 <i class="bi bi-file-earmark-bar-graph"></i></th>
+                        <th>선택 <input type="checkbox" onclick="checkAll(this)"><i class="bi bi-check2-square"></i></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if file_names %}
+                        {% for index in range(l) %}
+                            <tr>
+                                <td>{{ index + 1 }}</td>
+                                <td>{{ file_names[index] }}</td>
+                                <td>{{ file_size[index] }} bytes</td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="files" value="{{ files[index] }}">
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="4">업로드된 엑셀 파일이 없습니다.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+            <b>이메일 입력</b>
+            <input type="text" name="email"><br>
+            <button type="submit" class="btn btn-primary mt-3"><i class="bi bi-download"></i> 선택한 파일 다운로드/이메일로 보내기</button>
+        </form>
+        <form method='post' action="{{url_for('graph')}}">
+            <button type="submit" class="btn btn-primary mt-3">전체 그래프</button>
+        </form>
+    </div>
+</body>
+</html>

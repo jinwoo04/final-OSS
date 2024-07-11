@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Page</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 20px;
+        }
+        .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        }
+        th, td {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+        }
+        th {
+        background-color: #f2f2f2;
+        }
+        .container img {
+        max-width: 100%;
+        display: block;
+        margin: 0 auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        }
+        h1 {
+        text-align: center;
+        }
+        h3 {
+        text-align: center;
+        margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>일일 지역별 기상차트</h1>
+        <img src="data:image/jpeg;base64,{{ img_data }}" alt="Image Placeholder">
+        <h3>강수량에 따른 비행기 출항 여부</h3>
+        <table>
+            <thead>
+                <tr>
+                {% for i in names %}<th>{{i}}</th>{% endfor %}
+                </tr>
+            </thead>
+        <tbody>
+            <tr>
+            {% for i in r06 %}<td>{{i}}</td>{% endfor %}
+            </tr>
+        </tbody>
+        </table>
+    </div>
+</body>
+</html>
